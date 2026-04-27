@@ -95,6 +95,23 @@ def generate_launch_description():
             ]
         ),
 
+        TimerAction(
+            period=2.0,
+            actions=[
+                ExecuteProcess(
+                    cmd=[
+                        'ros2', 'topic', 'pub', '--once',
+                        '/arm_controller/joint_trajectory',
+                        'trajectory_msgs/msg/JointTrajectory',
+                        '{"joint_names": ["joint1", "joint2", "joint3", "joint4"], '
+                        '"points": [{"positions": [3.14159, 0.0, 0.0, 0.0], '
+                        '"time_from_start": {"sec": 2, "nanosec": 0}}]}'
+                    ],
+                    output='screen'
+                )
+            ]
+        ),
+
         # Bridge camera topic from Gazebo to ROS 2
         Node(
             package='ros_gz_bridge',
@@ -102,6 +119,7 @@ def generate_launch_description():
             arguments=[
                 '/gz/camera@sensor_msgs/msg/Image[gz.msgs.Image',
                 '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
+                '/world/manipulator_world/create@ros_gz_interfaces/srv/SpawnEntity',
             ],
             output='screen'
         ),

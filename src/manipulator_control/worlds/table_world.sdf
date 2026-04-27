@@ -117,7 +117,7 @@
     <!-- Overhead RGB Camera (simulates RPi Camera) -->
     <model name="overhead_camera">
       <static>true</static>
-      <pose>0.3 0 1.75 0 1.5708 0</pose>
+      <pose>0.3 0 1.5 0 1.5708 0</pose>
 
       <link name="camera_link">
 

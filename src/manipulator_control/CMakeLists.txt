@@ -8,6 +8,8 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(ros_gz_interfaces REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
 
 if(BUILD_TESTING)
@@ -29,5 +31,13 @@ install(DIRECTORY
   config
   DESTINATION share/${PROJECT_NAME}
 )
+
+add_executable(spawn_blocks src/spawn_blocks.cpp)
+ament_target_dependencies(spawn_blocks rclcpp ros_gz_interfaces geometry_msgs)
+
+
+install(TARGETS 
+  spawn_blocks
+  DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
