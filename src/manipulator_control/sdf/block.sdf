@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="BLOCK_NAME">
+    <static>false</static>
+    <link name="block_link">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>3e-6</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>5e-6</iyy><iyz>0</iyz>
+          <izz>6e-6</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <box><size>0.040 0.025 0.025</size></box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box><size>0.040 0.025 0.025</size></box>
+        </geometry>
+        <material>
+          <ambient>BLOCK_COLOR</ambient>
+          <diffuse>BLOCK_COLOR</diffuse>
+          <specular>0.1 0.1 0.1 1.0</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

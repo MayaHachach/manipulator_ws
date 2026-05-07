@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="MARKER_NAME">
+    <static>true</static>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box><size>0.08 0.06 0.001</size></box>
+        </geometry>
+        <material>
+          <ambient>MARKER_COLOR</ambient>
+          <diffuse>MARKER_COLOR</diffuse>
+          <emissive>MARKER_EMISSIVE</emissive>
+        </material>
+      </visual>
+      <!-- No collision — visual marker only -->
+    </link>
+  </model>
+</sdf>

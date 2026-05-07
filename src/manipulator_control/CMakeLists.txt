@@ -7,6 +7,7 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(ament_index_cpp REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(ros_gz_interfaces REQUIRED)
 find_package(geometry_msgs REQUIRED)
@@ -28,12 +29,13 @@ install(DIRECTORY
   launch
   worlds
   urdf
+  sdf
   config
   DESTINATION share/${PROJECT_NAME}
 )
 
 add_executable(spawn_blocks src/spawn_blocks.cpp)
-ament_target_dependencies(spawn_blocks rclcpp ros_gz_interfaces geometry_msgs)
+ament_target_dependencies(spawn_blocks rclcpp ros_gz_interfaces geometry_msgs ament_index_cpp)
 
 
 install(TARGETS 
