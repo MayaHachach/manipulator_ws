@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<sdf version="1.11">
+  <model name="milk_cup">
+    <link name="body">
+      <inertial>
+        <mass>0.50</mass>
+        <inertia>
+          <ixx>0.00005</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00005</iyy>
+          <iyz>0</iyz>
+          <izz>0.00006</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <density>10.0</density>
+        <pose>0 0 0.029 0 0 0</pose>
+        <geometry>
+          <mesh optimization="convex_decomposition">
+            <uri>mesh.obj</uri>
+            <scale>0.025 0.025 0.025</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0.029 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>mesh.obj</uri>
+            <scale>0.025 0.025 0.025</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

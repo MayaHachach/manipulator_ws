@@ -37,9 +37,13 @@ install(DIRECTORY
 add_executable(spawn_blocks src/spawn_blocks.cpp)
 ament_target_dependencies(spawn_blocks rclcpp ros_gz_interfaces geometry_msgs ament_index_cpp)
 
+add_executable(spawn_tools src/spawn_tools.cpp)
+ament_target_dependencies(spawn_tools rclcpp ros_gz_interfaces ament_index_cpp)
+
 
 install(TARGETS 
   spawn_blocks
+  spawn_tools
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
