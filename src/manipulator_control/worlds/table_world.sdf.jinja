@@ -18,14 +18,12 @@
       <render_engine>ogre2</render_engine>
     </plugin>
 
-    <!-- Ambient light -->
     <scene>
       <ambient>1.0 1.0 1.0 1.0</ambient>
       <background>0.9 0.9 0.9 1.0</background>
       <shadows>true</shadows>
     </scene>
 
-    <!-- Sun -->
     <light name="sun" type="directional">
       <cast_shadows>true</cast_shadows>
       <pose>0 0 10 0 0 0</pose>
@@ -34,7 +32,6 @@
       <direction>-0.3 0.1 -0.9</direction>
     </light>
 
-    <!-- Extra light from above -->
     <light name="top_light" type="point">
       <pose>0 0 3 0 0 0</pose>
       <diffuse>0.8 0.8 0.8 1</diffuse>
@@ -47,24 +44,17 @@
       </attenuation>
     </light>
 
-    <!-- White Ground -->
     <model name="ground_plane">
       <static>true</static>
       <link name="link">
         <collision name="collision">
           <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>20 20</size>
-            </plane>
+            <plane><normal>0 0 1</normal><size>20 20</size></plane>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>20 20</size>
-            </plane>
+            <plane><normal>0 0 1</normal><size>20 20</size></plane>
           </geometry>
           <material>
             <ambient>1.0 1.0 1.0 1</ambient>
@@ -75,13 +65,10 @@
       </link>
     </model>
 
-    <!-- Table -->
     <model name="table">
       <static>true</static>
       <pose>0.25 0 0 0 0 0</pose>
       <link name="link">
-
-        <!-- Table Top -->
         <collision name="top_collision">
           <pose>0 0 0.75 0 0 0</pose>
           <geometry><box><size>0.8 0.8 0.02</size></box></geometry>
@@ -90,68 +77,52 @@
           <pose>0 0 0.75 0 0 0</pose>
           <geometry><box><size>0.8 0.8 0.02</size></box></geometry>
           <material>
-            <!-- Matte black tabletop for high contrast vs props (YOLO / vision). -->
-            <ambient>0.04 0.04 0.04 1</ambient>
+           
+            <ambient>0.5 0.3 0.1 1</ambient>
+            <diffuse>0.5 0.3 0.1 1</diffuse>
+            <!--<ambient>0.04 0.04 0.04 1</ambient>
             <diffuse>0.06 0.06 0.06 1</diffuse>
-            <specular>0.12 0.12 0.12 1</specular>
+            <specular>0.12 0.12 0.12 1</specular> -->
+            
           </material>
         </visual>
-
-        <!-- Leg 1 -->
         <collision name="leg1"><pose>0.35 0.35 0.375 0 0 0</pose><geometry><box><size>0.05 0.05 0.75</size></box></geometry></collision>
         <visual name="leg1_v"><pose>0.35 0.35 0.375 0 0 0</pose><geometry><box><size>0.05 0.05 0.75</size></box></geometry>
-          <material>dice
-            <ambient>0.04 0.04 0.04 1</ambient>
-            <diffuse>0.06 0.06 0.06 1</diffuse>
-            <specular>0.12 0.12 0.12 1</specular>
-          </material>
+          <material><ambient>0.04 0.04 0.04 1</ambient><diffuse>0.06 0.06 0.06 1</diffuse><specular>0.12 0.12 0.12 1</specular></material>
         </visual>
-
-        <!-- Leg 2 -->
         <collision name="leg2"><pose>-0.35 0.35 0.375 0 0 0</pose><geometry><box><size>0.05 0.05 0.75</size></box></geometry></collision>
         <visual name="leg2_v"><pose>-0.35 0.35 0.375 0 0 0</pose><geometry><box><size>0.05 0.05 0.75</size></box></geometry>
-          <material>
-            <ambient>0.04 0.04 0.04 1</ambient>
-            <diffuse>0.06 0.06 0.06 1</diffuse>
-            <specular>0.12 0.12 0.12 1</specular>
-          </material>
+          <material><ambient>0.04 0.04 0.04 1</ambient><diffuse>0.06 0.06 0.06 1</diffuse><specular>0.12 0.12 0.12 1</specular></material>
         </visual>
-
-        <!-- Leg 3 -->
         <collision name="leg3"><pose>0.35 -0.35 0.375 0 0 0</pose><geometry><box><size>0.05 0.05 0.75</size></box></geometry></collision>
         <visual name="leg3_v"><pose>0.35 -0.35 0.375 0 0 0</pose><geometry><box><size>0.05 0.05 0.75</size></box></geometry>
-          <material>
-            <ambient>0.04 0.04 0.04 1</ambient>
-            <diffuse>0.06 0.06 0.06 1</diffuse>
-            <specular>0.12 0.12 0.12 1</specular>
-          </material>
+          <material><ambient>0.04 0.04 0.04 1</ambient><diffuse>0.06 0.06 0.06 1</diffuse><specular>0.12 0.12 0.12 1</specular></material>
         </visual>
-
-        <!-- Leg 4 -->
         <collision name="leg4"><pose>-0.35 -0.35 0.375 0 0 0</pose><geometry><box><size>0.05 0.05 0.75</size></box></geometry></collision>
         <visual name="leg4_v"><pose>-0.35 -0.35 0.375 0 0 0</pose><geometry><box><size>0.05 0.05 0.75</size></box></geometry>
-          <material>
-            <ambient>0.04 0.04 0.04 1</ambient>
-            <diffuse>0.06 0.06 0.06 1</diffuse>
-            <specular>0.12 0.12 0.12 1</specular>
-          </material>
+          <material><ambient>0.04 0.04 0.04 1</ambient><diffuse>0.06 0.06 0.06 1</diffuse><specular>0.12 0.12 0.12 1</specular></material>
         </visual>
-
       </link>
     </model>
 
-    <!-- RGB Camera: oblique view toward workspace (tune pose for YOLO / perception). -->
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Camera — pose injected from launch file via Jinja2 parameters
+         Defaults match your current working pose if nothing is passed.
+    ═══════════════════════════════════════════════════════════════════ -->
     <model name="overhead_camera">
       <static>true</static>
-      <!-- x y z roll pitch yaw [rad]; pitch 0.36 (~20.6°) -->
-      <pose>1.0 0.0 1.15 0.0 0.6 3.1415</pose>
+      <pose>
+        {{ cam_x   | default(1.0)    }}
+        {{ cam_y   | default(0.0)    }}
+        {{ cam_z   | default(1.15)   }}
+        {{ cam_roll  | default(0.0)  }}
+        {{ cam_pitch | default(0.6)  }}
+        {{ cam_yaw   | default(3.1415) }}
+      </pose>
 
       <link name="camera_link">
-
         <visual name="visual">
-          <geometry>
-            <box><size>0.05 0.05 0.05</size></box>
-          </geometry>
+          <geometry><box><size>0.05 0.05 0.05</size></box></geometry>
           <material>
             <ambient>0.1 0.1 0.8 1</ambient>
             <diffuse>0.1 0.1 0.8 1</diffuse>
@@ -164,28 +135,21 @@
           <update_rate>30</update_rate>
           <visualize>true</visualize>
           <topic>/gz/camera</topic>
-
           <camera>
-            <!-- RPi Camera v2 specs -->
             <horizontal_fov>1.0855</horizontal_fov>
             <image>
               <width>1280</width>
               <height>720</height>
               <format>RGB_INT8</format>
             </image>
-            <clip>
-              <near>0.1</near>
-              <far>10.0</far>
-            </clip>
+            <clip><near>0.1</near><far>10.0</far></clip>
             <noise>
               <type>gaussian</type>
               <mean>0.0</mean>
               <stddev>0.005</stddev>
             </noise>
           </camera>
-
         </sensor>
-
       </link>
     </model>
 
