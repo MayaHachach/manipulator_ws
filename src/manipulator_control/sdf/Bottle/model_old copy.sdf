@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+<!--
+  Plastic condiment bottle — mass ~350 g; inertia scaled from original mesh export.
+-->
+    <model name="mustard_bottle">
+      <!-- Pose comes from spawn / world; mesh URIs are relative to this file. -->
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.35</mass>
+          <inertia>
+           <ixx>9.548e-04</ixx>
+           <ixy>0</ixy>
+           <ixz>0</ixz>
+           <iyy>8.323e-04</iyy>
+           <iyz>0</iyz>
+           <izz>2.454e-04</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+          	<mesh>
+             <uri>textured.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+          	<mesh>
+            <uri>textured.dae</uri>
+	        </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+</sdf>

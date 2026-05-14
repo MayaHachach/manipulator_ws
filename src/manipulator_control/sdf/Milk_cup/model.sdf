@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <sdf version="1.11">
   <model name="milk_cup">
+    <static>false</static>
     <link name="body">
       <inertial>
         <mass>0.50</mass>
